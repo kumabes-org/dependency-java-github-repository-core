@@ -16,4 +16,7 @@ mv dependency-java-github-repository-core app
 ```
 ### 
 ### 
+```
+mvn -s settings.xml -f pom.xml deploy
+```
 ### 

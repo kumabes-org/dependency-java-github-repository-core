@@ -2,21 +2,45 @@ package br.com.kumabe.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "repositories")
 public class Repository implements Serializable {
+	private static final long serialVersionUID = -9041038079905647679L;
+
+	@Id
+	@Column(name = "id")
 	private Long id;
-	private String node_id;
+	
+	@Column(name = "node_id")
+	private String nodeId;
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "full_name")
 	private String fullName;
+	
+	@Column(name = "private")
 	private Boolean repositoryPrivate;
+		
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
 	private Owner owner;
 
 	public Repository() {
 	}
 
-	public Repository(Long id, String node_id, String name, String fullName, Boolean repositoryPrivate, Owner owner) {
+	public Repository(Long id, String nodeId, String name, String fullName, Boolean repositoryPrivate, Owner owner) {
 		super();
 		this.id = id;
-		this.node_id = node_id;
+		this.nodeId = nodeId;
 		this.name = name;
 		this.fullName = fullName;
 		this.repositoryPrivate = repositoryPrivate;
@@ -31,12 +55,12 @@ public class Repository implements Serializable {
 		this.id = id;
 	}
 
-	public String getNode_id() {
-		return node_id;
+	public String getNodeId() {
+		return nodeId;
 	}
 
-	public void setNode_id(String node_id) {
-		this.node_id = node_id;
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
 	}
 
 	public String getName() {
@@ -59,7 +83,7 @@ public class Repository implements Serializable {
 		return repositoryPrivate;
 	}
 
-	public void setRepository_private(Boolean repositoryPrivate) {
+	public void setRepositoryPrivate(Boolean repositoryPrivate) {
 		this.repositoryPrivate = repositoryPrivate;
 	}
 
@@ -70,5 +94,5 @@ public class Repository implements Serializable {
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
-
+	
 }
