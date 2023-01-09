@@ -71,15 +71,12 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub OWNER Apache Maven Packages</name>
-			<!--<url>https://maven.github.com/kumabes-org/dependency-java-github-repository-core</url>-->
 			<url>https://maven.pkg.github.com/kumabes-org/dependency-java-github-repository-core</url>
 		</repository>
 	</distributionManagement>
 
 	<build>
 		<pluginManagement>
-			<!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent
-			pom) -->
 			<plugins>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -90,18 +87,20 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.0.0-M6</version>
+					<configuration>
+						<argLine>${argLine}</argLine>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.8.9-SNAPSHOT</version>
+					<version>0.8.2</version>
 					<executions>
 						<execution>
 							<goals>
 								<goal>prepare-agent</goal>
 							</goals>
 						</execution>
-						<!-- attached to Maven test phase -->
 						<execution>
 							<id>report</id>
 							<phase>test</phase>

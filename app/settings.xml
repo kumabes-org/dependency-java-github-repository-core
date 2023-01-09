@@ -16,7 +16,6 @@
                 </repository>
                 <repository>
                     <id>github</id>
-                    <!--<url>https://maven.github.com/kumabes-org/dependency-java-github-repository-core</url>-->
                     <url>https://maven.pkg.github.com/kumabes-org/dependency-java-github-repository-core</url>
                     <snapshots>
                         <enabled>true</enabled>
