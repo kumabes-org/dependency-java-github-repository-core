@@ -1,0 +1,17 @@
+name: "Continuous Integration"
+
+on: push
+
+jobs:
+  call-workflow-ci-java-maven:
+    uses: kumabes-org/reusable-workflows-ci-java-maven/.github/workflows/ci.yml@main
+    with:
+      runs-on: "ubuntu-latest"
+      environment: "production"
+      working-directory: "app"
+      shell: "bash"
+      project-name: "dependency-java-github-repository-core"
+      java-distribution: "zulu"
+      java-version: "11"
+      maven-version: "3.8.6"
+    secrets: inherit
