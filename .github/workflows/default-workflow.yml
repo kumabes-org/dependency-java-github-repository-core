@@ -16,6 +16,18 @@ jobs:
       maven-version: "3.8.6"
     secrets: inherit
 
+  call-workflow-sonarqube:
+    needs:
+      - call-workflow-ci-java-maven
+    uses: kumabes-org/reusable-workflows-sonarqube/.github/workflows/main.yml@main
+    with:
+      runs-on: "ubuntu-latest"
+      environment: "production"
+      working-directory: "app"
+      shell: "bash"    
+      project-name: "dependency-java-github-repository-core"
+    secrets: inherit
+
   call-workflow-codeql:
     needs:
       - call-workflow-ci-java-maven
